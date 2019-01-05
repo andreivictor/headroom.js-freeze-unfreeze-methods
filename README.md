@@ -9,7 +9,7 @@ When called, this method will resume headroom's default behaviour. Headroom will
 
 ## Setup
 Include `headroom-freeze-unfreeze-methods.js` after `headroom.js` file:
-```javascript
+```html
 <script src="headroom.js"></script>
 <script src="headroom-freeze-unfreeze-methods.js"></script>
 ```
@@ -42,6 +42,26 @@ $("#header").headroom('freeze');
 
 // unfreeze method
 $("#header").headroom('unfreeze');
+```
+
+## Options
+There is a new property for the `classes` option:
+```javascript
+{
+  // ... other options
+  classes: {
+    // ... other classes
+    freezed : 'headroom--frozen'
+  }
+}
+```
+
+## Styling (CSS)
+Add some CSS to the new class `headroom--frozen`: 
+```css
+.headroom--frozen {
+  opacity: 0.8;
+}
 ```
 
 ## Example
