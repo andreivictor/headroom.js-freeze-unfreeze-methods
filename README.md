@@ -65,4 +65,4 @@ Add some CSS to the new class `headroom--frozen`:
 ```
 
 ## Example
-- plain JS: [Codepen](https://codepen.io/andreivictor/pen/oymbLO)
+- plain JS: [Codepen](https://codepen.io/andreivictor/full/oymbLO)
