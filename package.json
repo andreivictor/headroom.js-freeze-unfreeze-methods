@@ -1,0 +1,36 @@
+{
+  "name": "headroom.js-freeze-unfreeze-methods",
+  "version": "1.0.0",
+  "description": "Extends Headroom.js plugin by adding methods to freeze/unfreeze the current headroom's state.",
+  "main": "dist/headroom-freeze-unfreeze-methods.js",
+  "scripts": {
+    "start": "grunt",
+    "build": "grunt dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andreivictor/headroom.js-freeze-unfreeze-methods.git"
+  },
+  "keywords": [
+    "headroom",
+    "header",
+    "fixed",
+    "scroll",
+    "menu"
+  ],
+  "author": "Andrei Bulearca",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andreivictor/headroom.js-freeze-unfreeze-methods/issues"
+  },
+  "homepage": "https://github.com/andreivictor/headroom.js-freeze-unfreeze-methods#readme",
+  "dependencies": {
+    "headroom.js": "^0.9.4"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-contrib-watch": "^1.1.0"
+  }
+}
