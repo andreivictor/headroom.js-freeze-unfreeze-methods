@@ -51,7 +51,7 @@ There is a new property for the `classes` option:
   // ... other options
   classes: {
     // ... other classes
-    freezed : 'headroom--frozen'
+    frozen : 'headroom--frozen'
   }
 }
 ```
