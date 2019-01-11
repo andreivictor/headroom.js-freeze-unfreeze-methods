@@ -1,0 +1,155 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>headroom.js-freeze-unfreeze-methods</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <header id="header" class="header header--fixed hide-from-print" role="banner">
+        <div class="container" >
+            <nav id="nav" class="nav-wrapper" role="navigation">
+                <ul class="nav">
+                    <li class="nav__item ">
+                        <a class="header__link" href="https://github.com/andreivictor/headroom.js-freeze-unfreeze-methods">
+                            <span aria-hidden="true" class="icon icon--gh"></span>
+                            <span class="complimentary push--left">GitHub</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <a href="http://wicky.nillia.ms/headroom.js/" class="brand header__link">
+                <b class="brand__forename">Headroom</b><b class="brand__surname">.js</b></a> <b class="brand__surname">freeze/unfreeze methods</b>
+            </a>
+        </div>
+    </header>
+
+    <article>
+        <header class="feature">
+            <div class="container container--wide">
+                <h1 class="feature__title">Headroom.js</h1>
+                <p class="feature__subtitle">Extends <a href="http://wicky.nillia.ms/headroom.js/">Headroom.js</a> plugin by adding methods to freeze/unfreeze the current headroom's state. </p>
+            </div>
+        </header>
+
+        <div class="container block main" role="main">
+
+            <p>Extends Headroom.js plugin by adding methods to freeze/unfreeze the current headroom's state:</p>
+            <p><code>freeze</code> method: When called, this method will freeze the current headroom's state (pinned or unpinned). Headroom will not react to the user's scroll. If you wish to re-enable the headroom's default behaviour, you can call unfreeze method.
+            <p><code>unfreeze</code> method: When called, this method will resume headroom's default behaviour. Headroom will pin or unpin when the user scrolls the page. By default, Headroom is not freezed and calling this method before freeze will do nothing.</p>
+
+            <h2>Downloads</h2>
+
+            <div class="downloads island">
+                <div class="grid">
+                    <div class="grid__item one-half"><a class="btn btn--secondary btn--full" href="#">Development <span class="complimentary subdued">(3.5KB)</span></a></div>
+                    <div class="grid__item one-half"><a class="btn btn--secondary btn--full" href="#">Production <span class="complimentary subdued">(2KB)</span></a></div>
+                </div>
+            </div>
+
+            <h2>Usage</h2>
+
+            <h3>With plain JS</h3>
+            <p>Include the <code>headroom.js</code> and <code>headroom-freeze-unfreeze-methods.js</code> scripts in your page, and then:</p>
+            <pre class="language-javascript"><code>// grab an element
+            var myElement = document.querySelector("header");
+            // construct an instance of Headroom, passing the element
+            var headroom  = new Headroom(myElement);
+            // initialise
+            headroom.init();
+
+            document.querySelector("...").addEventListener('click', () => {
+            // freeze method
+            headroom.freeze();
+            });
+
+            document.querySelector("...").addEventListener('click', () => {
+            // unfreeze method
+            headroom.unfreeze();
+            });
+            </code></pre>
+
+            <h3>With jQuery/Zepto</h3>
+            <p>Include the <code>headroom.js</code>, <code>headroom-freeze-unfreeze-methods.js</code> and <code>jQuery.headroom.js</code> scripts in your page, and then:</p>
+            <pre class="language-javascript"><code>// simple as this!
+            // NOTE: init() is implicitly called with the plugin
+            $("#header").headroom();
+
+            // freeze method
+            $("#header").headroom('freeze');
+
+            // unfreeze method
+            $("#header").headroom('unfreeze');
+            </code></pre>
+
+            <h2>Styling (CSS)</h2>
+            <p>
+            Add some CSS to the new class <code>headroom--frozen</code>:
+            <pre class="language-css"><code class="language-css">.headroom--frozen {
+                opacity: 0.8;
+            }</code></pre>
+            </p>
+
+            <h2>Browser support</h2>
+            <p>
+            Same as Headroom.js. This extension has no impact on the browsers supported by the main plugin.
+            </p>
+
+            <h2>License</h2>
+            <p>
+            Licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>.
+            </p>
+
+
+
+        </div>
+    </article>
+
+    <aside class="freeze-controls">
+        <button type="button" class="btn btn--secondary" id="js-headroom-freeze">Freeze</button>
+        <button type="button" class="btn btn--secondary is-hidden" id="js-headroom-unfreeze">Unfreeze</button>
+    </aside>
+
+    <script src="../node_modules/headroom.js/dist/headroom.js"></script>
+    <script src="../dist/headroom-freeze-unfreeze-methods.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            var header = document.querySelector("#header");
+
+            headroom = new Headroom(header, {
+                tolerance: {
+                    down : 10,
+                    up : 10
+                },
+                offset : 205
+            });
+
+            headroom.init();
+
+            // adding controls
+            var controls = document.querySelector(".freeze-controls");
+
+            controls.addEventListener('click', (e) => {
+                const targetId = e.target.id;
+                if (targetId === 'js-headroom-freeze') {
+                    headroom.freeze();
+                    document.querySelector('#js-headroom-unfreeze').classList.remove('is-hidden');
+                    e.target.classList.add('is-hidden');
+                } else if (targetId === 'js-headroom-unfreeze') {
+                    headroom.unfreeze();
+                    document.querySelector('#js-headroom-freeze').classList.remove('is-hidden');
+                    e.target.classList.add('is-hidden');
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
