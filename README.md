@@ -7,6 +7,10 @@ When called, this method will freeze the current headroom's state (pinned or unp
 - `unfreeze` method:
 When called, this method will resume headroom's default behaviour. Headroom will pin or unpin when the user scrolls the page. By default, Headroom is not freezed and calling this method before `freeze` will do nothing. 
 
+## Compatibility
+Headroom.js version **lower than v0.10.0**.
+This methods are integrated in Headroom.js for versions greater than v0.10.0.
+
 ## Setup
 Include `headroom-freeze-unfreeze-methods.js` after `headroom.js` file:
 ```html
